@@ -1,0 +1,46 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "name": "json-server",
+      "gender": "male"
+    }
+  ],
+  "users": [
+    {
+      "e_name": "sudesh",
+      "username": "sudeshsurve223@gmail.com",
+      "gender": "male",
+      "city": "mumbai",
+      "id": 1658383680701,
+      "date": "275760-02-08"
+    },
+    {
+      "e_name": "amit",
+      "username": "amit@gmail.com",
+      "gender": "male",
+      "city": "pune",
+      "id": 1658383692589,
+      "date": "1222-02-02"
+    },
+    {
+      "e_name": "ganesh",
+      "username": "ganesh@123",
+      "gender": "male",
+      "city": "mumbia",
+      "id": 1658394180538,
+      "date": "2001-02-03"
+    },
+    {
+      "e_name": "kunal",
+      "username": "kunal@123",
+      "city": "pune",
+      "gender": "male",
+      "date": "2000-12-23",
+      "id": 1658394180539
+    }
+  ],
+  "data": {
+    "name": "sudesh"
+  }
+}

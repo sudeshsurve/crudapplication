@@ -1,0 +1,61 @@
+<div class="container mt-5 " >
+    <div class="card p-3">
+      <div class="row mt-3" >
+        <div class="col d-flex justify-content-center">
+     
+   <h3>User Form</h3>
+    </div>
+</div>
+  <div class="row mt-1">
+    <div class="d-flex justify-content-center gap-2">
+     <div class=" col-3 ">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Name</label>
+            <input type="text"  [(ngModel)]="user_obj.name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>   
+                   
+    </div>
+    <div class="col-3">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">UserName</label>
+            <input type="text" [(ngModel)]="user_obj.username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>  
+    </div>
+    </div>
+    
+  </div>
+  <div class="row mt-1">
+    <div class="d-flex justify-content-center gap-2">
+     <div class="col-3">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">City</label>
+            <input type="text" [(ngModel)]="user_obj.city" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>         
+    </div>
+    <div class="col-3">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Gender</label>
+            <input type="text" [(ngModel)]="user_obj.gender" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>  
+    </div>   
+    </div>
+    
+  </div>  
+  <!-- <div class="row mt-1">
+    <div class="d-flex justify-content-center gap-2">
+     <div class="col-3">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Date</label>
+            <input type="date" [(ngModel)]="user_obj.date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>         
+    </div>   
+    </div>
+    
+  </div>   -->
+  <div class="d-flex justify-content-center gap-3">
+   <button type="button" *ngIf="!this.obj._id" class="btn btn-primary btn-sm" routerLink="/user_list" (click)="submit()">Submit</button>
+    <button type="button" *ngIf="this.obj._id"  class="btn btn-primary btn-sm" routerLink="/user_list"  (click)="update()" >Update</button>
+  </div>  
+    </div>
+    
+</div>
