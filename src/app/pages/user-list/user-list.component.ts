@@ -8,7 +8,7 @@ import { GlobalService } from 'src/app/global.service';
 })
 export class UserListComponent implements OnInit {
   search :any
- 
+ errormessage :any = null
   constructor(public gs:GlobalService) {
     
 
@@ -18,12 +18,26 @@ export class UserListComponent implements OnInit {
   ngOnInit(): void {
     this.gs.get_user().subscribe((x)=> {
       console.log(x)
-    this.gs.user = x })
-    console.log(this.gs.user);
+    this.gs.user = x },
+     (err)=>{
+      alert(err.message('something wrong'))
+    },()=>{
+      console.log("data get succesfully");
+    })
+    
+ 
 
   } 
   remove(id:any, i:any ){
-    this.gs.delete_user(id).subscribe()
+    this.gs.delete_user(id).subscribe((x)=>{
+      console.log(x);
+    },(err)=>{
+      this.errormessage = err.message
+    },()=>{
+      console.log("delete succesfully");
+    })
+    
+    
     this.gs.user.splice(i, 1)
   }
  

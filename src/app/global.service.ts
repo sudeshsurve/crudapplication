@@ -1,4 +1,4 @@
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 
@@ -32,30 +32,38 @@ export class GlobalService {
   user:any=[]
   str:any =''
   userdata$ = new Subject<any>()
-  constructor(public http:HttpClient) { 
+  constructor(public http:HttpClient) {           
       
 
     
   }
 
- get_user(){
-  
-  return this.http.get('http://localhost:3000/user')
+ get_user():Observable<any>{
+  let header = new HttpHeaders({
+'content-type' :' Appliction/json'
+  })
+  return this.http.get('http://localhost:3000/user' , {headers: header})
 }
 
-post_user(data:any){
- return this.http.post('http://localhost:3000/post_data' , data)
+post_user(data:any):Observable<any> {
+  let header = new HttpHeaders({
+    'content-type' :' Applicttion/json'
+      })
+ return this.http.post('http://localhost:3000/post_data' , data )
  
   
 }
 
- delete_user(id:any){
+ delete_user(id:any):Observable<any>{
+  let header = new HttpHeaders({
+    'content-type' :' Appliction/json'
+      })
   const url = 'http://localhost:3000/' + id
-  return  this.http.delete(url )
+  return  this.http.delete(url , {headers:header})
 }
-update_user(id:any , body:any){
-  const url = 'http://localhost:3000/' + id
-  return this.http.put(url,body)
+update_user(id:any , body:any):Observable<any>{
+  console.log(JSON.stringify(id));
+  return this.http.put('http://localhost:3000/update/' + id, body )
 }
 
 }

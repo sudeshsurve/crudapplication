@@ -23,6 +23,8 @@ obs_data:any
 u_d:any
 obj :any={}
 
+errormessage: any = null
+
   constructor(public gs:GlobalService,public router:Router, public rout :ActivatedRoute) {
  this.gs.userdata$.subscribe(x=> this.u_d= x)
     
@@ -32,30 +34,40 @@ obj :any={}
   ngOnInit(): void { 
     // this.gs.user
 this.rout.queryParams.subscribe(x => this.obj = x  )
+console.log(this.obj._id);
   let index = this.gs.user.findIndex((a:any) => a._id == this.obj._id)        
 this.user_obj =  {...this.gs.user[index]}
 console.log(index)
-
-
-
   }  
 
   submit(){  
    if(!this.obj._id){
-    this.gs.post_user(this.user_obj).subscribe()   
-   this.router.navigate(['/user_list'])
-  //  this.gs.get_user() 
-   console.log(this.user_obj)
+    this.gs.post_user(this.user_obj).subscribe((x)=>{
+      console.log(x);
+    },(err)=>{
+  this.errormessage = err.message
+    },()=>{
+      console.log('save succefully');
+    })   
+   this.router.navigate(['/user_list']) 
+  //  console.log(this.user_obj)
+   }
+   
+   else{
+    console.log(this.user_obj);
+     this.gs.update_user(this.obj._id, this.user_obj).subscribe((s)=>{
+   
+    },(err)=>{
+      alert(err.message)
+    },()=>{
+      alert('upadate succefully')
+    })
+   
    }
      
   
   }
 
-update(){
-    this.gs.update_user(this.obj.id,this.user_obj).subscribe()
-    this.router.navigate(['/user_list'])
-
-}
 
 
 
