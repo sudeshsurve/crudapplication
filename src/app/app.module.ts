@@ -10,6 +10,7 @@ import { UserListComponent } from './pages/user-list/user-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterPipe } from './filter.pipe';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FilterPipe } from './filter.pipe';
     HeaderComponent,
     UserFormComponent,
     UserListComponent,
-    FilterPipe
+    FilterPipe,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
