@@ -1,7 +1,8 @@
 import { HttpClient, HttpHeaders} from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
+import { Data } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
-
+import { DataType } from "./user_data_type";
 @Injectable({
   providedIn: 'root'
 })
@@ -32,6 +33,12 @@ export class GlobalService {
   user:any=[]
   str:any =''
   userdata$ = new Subject<any>()
+
+showsingleuser = new EventEmitter<DataType>()
+
+clickdata(user:DataType){
+  this.showsingleuser.emit(user)
+}
   constructor(public http:HttpClient) {           
       
 
@@ -45,25 +52,29 @@ export class GlobalService {
   return this.http.get('http://localhost:3000/user' , {headers: header})
 }
 
-post_user(data:any):Observable<any> {
-  let header = new HttpHeaders({
-    'content-type' :' Applicttion/json'
-      })
- return this.http.post('http://localhost:3000/post_data' , data )
+post_user(data:any):Observable<DataType> {
+  let headers = new HttpHeaders()
+headers .set('content-type', 'application/json')
+headers .set('Access-Control-Allow-Origin', '*')
+ return this.http.post<DataType>('http://localhost:3000/post_data' , data , {headers:headers} )
  
   
 }
 
- delete_user(id:any):Observable<any>{
+ delete_user(id:any):Observable<DataType>{
   let header = new HttpHeaders({
     'content-type' :' Appliction/json'
       })
   const url = 'http://localhost:3000/' + id
-  return  this.http.delete(url , {headers:header})
+  return  this.http.delete<DataType>(url , {headers:header})
 }
-update_user(id:any , body:any):Observable<any>{
+
+update_user(id:any , body:DataType):Observable<DataType>{
+  let headers = new HttpHeaders()
+  headers .set('content-type', 'application/json')
+  headers .set('Access-Control-Allow-Origin', '*')
   console.log(JSON.stringify(id));
-  return this.http.put('http://localhost:3000/update/' + id, body )
+  return this.http.put<DataType>('http://localhost:3000/update/' + id, body ,{headers: headers} )
 }
 
 }

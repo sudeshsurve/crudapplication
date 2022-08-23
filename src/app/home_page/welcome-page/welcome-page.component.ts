@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GlobalService } from 'src/app/global.service';
 
 @Component({
   selector: 'app-welcome-page',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./welcome-page.component.css']
 })
 export class WelcomePageComponent implements OnInit {
-
-  constructor() { }
+user: any
+  constructor(private gs : GlobalService) { }
 
   ngOnInit(): void {
+    this.gs.showsingleuser.subscribe((x:any)=>{
+      setTimeout(() => {
+        this.user = x
+      }, 1000);
+    },(err)=>{
+      alert(err.message)
+    },()=>{
+      console.log("view details");
+      
+    })
   }
 
 }

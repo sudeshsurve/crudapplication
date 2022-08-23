@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GlobalService } from 'src/app/global.service';
-
+import {DataType  } from "src/app/user_data_type";
 
 
 
@@ -12,7 +12,7 @@ import { GlobalService } from 'src/app/global.service';
   styleUrls: ['./user-form.component.css']
 })
 export class UserFormComponent implements OnInit {
-user_obj  ={
+user_obj :DataType ={
   name:'',
   username:'',
   gender:'',
@@ -20,13 +20,11 @@ user_obj  ={
 }
 obs_data:any
 
-u_d:any
 obj :any={}
 
 errormessage: any = null
 
   constructor(public gs:GlobalService,public router:Router, public rout :ActivatedRoute) {
- this.gs.userdata$.subscribe(x=> this.u_d= x)
     
    
   }
@@ -49,6 +47,7 @@ console.log(index)
     },()=>{
       console.log('save succefully');
     })   
+    this.gs.userdata$.next(true)
    this.router.navigate(['/user_list']) 
   //  console.log(this.user_obj)
    }

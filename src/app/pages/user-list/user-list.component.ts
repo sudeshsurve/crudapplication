@@ -7,23 +7,31 @@ import { GlobalService } from 'src/app/global.service';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
-  search :any
+  search :any= ''
+  hidee :any = true
  errormessage :any = null
-  constructor(public gs:GlobalService) {
-    
-
-
-   }
+ user:any
+  constructor(public gs:GlobalService) { }
 
   ngOnInit(): void {
-    this.gs.get_user().subscribe((x)=> {
+this.gs.userdata$.subscribe((x)=>{
+this.hidee = x
+  console.log(x);
+})
+
+
+
+
+setTimeout(() => {
+  this.gs.get_user().subscribe((x)=> {
       console.log(x)
     this.gs.user = x },
      (err)=>{
       alert(err.message('something wrong'))
     },()=>{
       console.log("data get succesfully");
-    })
+    })    
+}, 1000);
     
  
 
@@ -36,10 +44,22 @@ export class UserListComponent implements OnInit {
     },()=>{
       console.log("delete succesfully");
     })
-    
-    
     this.gs.user.splice(i, 1)
   }
- 
+  view_user(x:any){
+this.gs.clickdata(x)
+  }
 
+
+
+changeSerach(eventdata : Event){
+// console.log(( <HTMLInputElement>(eventdata.target)).value);
+return setTimeout(() => {
+this.search = ( <HTMLInputElement>(eventdata.target)).value 
+},2000);
+  }
+
+  hide(){
+    this.hidee = false
+  }
 }
