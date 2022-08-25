@@ -1,0 +1,15 @@
+            
+              <div class="container mt-5">
+                  <h3><strong>Enter Username And Password</strong></h3>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Username</label>
+                      <input type="text" class="form-control" [(ngModel)]="login_user.username" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      <div id="emailHelp" class="form-text">Make Suer Enter your username And Password</div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Password</label>
+                      <input type="password" [(ngModel)]="login_user.password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    
+                    <button type="button" class="btn btn-primary" (click)="login()">Submit</button>
+              </div>

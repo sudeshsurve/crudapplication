@@ -29,6 +29,11 @@ export class GlobalService {
   //       { id: 3, date: '1-04-2022', attandance: 'present' },
   //       { id: 2, date: '5-02-2022', attandance: 'absent' }
   //     ]
+
+
+
+
+
   
   user:any=[]
   str:any =''

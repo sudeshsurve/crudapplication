@@ -14,16 +14,20 @@
           </li>
           <li>
 
-              <button type="button" class="btn btn-warning btn-sm">User_Data</button>
+              <button type="button" class="btn btn-warning btn-sm"  routerLink="/welcom_page"  >Total Expense Report</button>
           </li>
           <li class="nav-item">
-            <button type="button" class="btn btn-success btn-sm"  >Data</button>
+            <button type="button" class="btn btn-success btn-sm" routerLink="/expense-report"  >Expence Report</button>
+          </li>
+
+          <li class="nav-item">
+            <button type="button" class="btn btn-success btn-sm" routerLink="/expense-form"  >Expence form</button>
           </li>
         </ul>
         <div class="d-flex">
           <!-- <input class="div-control me-2"  type="search" [(ngModel)]="this.search" (ngModelChange)="click($event)"  placeholder="Search" aria-label="Search"> -->
-          <button class="btn btn-primary" type="button">Sign_in</button>
+          <button class="btn btn-primary" type="button" routerLink="/sign-in">Sign_in</button>
         </div>
-      </div>
+      </div>  
     </div>
   </nav>

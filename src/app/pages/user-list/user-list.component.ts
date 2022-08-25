@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { GlobalService } from 'src/app/global.service';
+import { UserServiceService } from 'src/app/service/user-service.service';
 
 @Component({
   selector: 'app-user-list',
@@ -11,9 +13,13 @@ export class UserListComponent implements OnInit {
   hidee :any = true
  errormessage :any = null
  user:any
-  constructor(public gs:GlobalService) { }
+  constructor(public gs:GlobalService , private gs_user : UserServiceService , private rout : Router) { }
 
   ngOnInit(): void {
+if(!this.gs_user.login_user_data.username){
+this.rout.navigateByUrl('/sign-in')
+}
+
 this.gs.userdata$.subscribe((x)=>{
 this.hidee = x
   console.log(x);

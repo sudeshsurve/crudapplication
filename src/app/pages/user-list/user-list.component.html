@@ -1,28 +1,29 @@
-<div class="container mt-4">
+<!-- <div class="container mt-4">
   <div class="alert alert-primary d-flex justify-content-between"  *ngIf="this.hidee" role="alert">
     A simple primary alert—check it out!
     <p (click)="hide()">X</p>
-  </div>
-  <div class="row d-flex justify-content-end">
+  </div>-->
+  <!-- <div class=" ">
     <div class="col col-3">
           <input class="form-control"  type="text" (input)="changeSerach($event)"   placeholder="Search" aria-label="Search">
    
     </div>
-  </div>
-</div>
+  </div> -->
 
-<div class="container  " >
+
+<div class="container mt-4" >
   <div  class="row">
-    <div class="col col-4">
+    <div class="col ">
      <table class="table" >
         <thead >
           <tr>
             <th scope="col">SR.no</th>
             <th scope="col">Name</th>
-            <!-- <th scope="col">Gender</th>
+            <th scope="col">Gender</th>
             <th scope="col">City</th>
-            <th scope="col">ID</th>
-            <th scope="col">UserName</th>-->
+            <th scope="col">Role</th>
+            <th scope="col">UserName</th>
+            <th scope="col">Password</th>
             <th scope="col">Action</th> 
          
           </tr> 
@@ -31,10 +32,11 @@
           <tr *ngFor="let x of gs.user | filter:search ; let i = index">
             <th >{{i+1}}</th>
             <td>{{x.name}}</td>
-            <!-- <td>{{x.gender}}</td>
+            <td>{{x.gender}}</td>
             <td>{{x.city}}</td>
-            <td>{{x._id}}</td>
-            <td>{{x.username}}</td> -->
+            <td>{{x.role}}</td>
+            <td>{{x.username}}</td>
+            <td>{{x.password}}</td>
             <div class="d-flex gap-4">
               <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square"  [queryParams]="{_id:x._id}" routerLink="/user_form" viewBox="0 0 16 16">
               <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
@@ -43,7 +45,7 @@
   <td><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" (click)="remove(x._id, i)"    class="bi bi-trash3-fill" viewBox="0 0 16 16">
     <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
   </svg></td>
-  <td><button class="btn btn-primary btn-sm" (click)="view_user(x)"> view details</button></td>
+  <!-- <td><button class="btn btn-primary btn-sm" (click)="view_user(x)"> view details</button></td> -->
             </div>
             
           </tr>
@@ -54,7 +56,7 @@
     
     <div class="col col-6 center" >
    
-        <app-welcome-page></app-welcome-page>
+        <!-- <app-welcome-page></app-welcome-page> -->
       
 
 </div>  

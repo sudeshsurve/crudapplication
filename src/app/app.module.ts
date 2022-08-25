@@ -11,6 +11,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterPipe } from './filter.pipe';
 import { ErrorComponent } from './error/error.component';
+import { SignInComponent } from './pages/sign-in/sign-in.component';
+import { ExpenseFormComponent } from './pages/expense-form/expense-form.component';
+import { ExpenseReportComponent } from './pages/expense-report/expense-report.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { ErrorComponent } from './error/error.component';
     UserFormComponent,
     UserListComponent,
     FilterPipe,
-    ErrorComponent
+    ErrorComponent,
+    SignInComponent,
+    ExpenseFormComponent,
+    ExpenseReportComponent
   ],
   imports: [
     BrowserModule,
