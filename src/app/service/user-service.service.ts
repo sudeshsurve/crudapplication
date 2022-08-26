@@ -1,11 +1,12 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserServiceService {
-login_user_data : any ={}
-  constructor() { }
+login_user_data : any ={} = JSON.parse(localStorage.getItem('emp') || '{}')
+  constructor( public http : HttpClient) { }
 
  expenses :any= [
   // { date : '3 Apr 19', head : 'Food', amount : 10, paid_to : 'Wada Pav Wala', username : 'shubham', approved:true },
@@ -13,19 +14,26 @@ login_user_data : any ={}
   // { date : '6 Jun 19', head : 'Travel', amount : 70, paid_to : 'BEST', username : 'sandip', approved:false },
   // { date : '6 Dec 19', head : 'Travel', amount : 10, paid_to : 'BEST', username : 'ganesh', approved:true },
   // { date : '6 Sept 19', head : 'Operations', amount : 299, paid_to : 'BEST', username:'akash', approved:false },
-]= []= JSON.parse(localStorage.getItem('key')|| '[]')
-// 
-// 
-
-users:any = [ 
-  { name : 'Akash', city : 'Vashi', username : 'akash', role: 'Manager', password : 'akash123'},
-  { name : 'Prajwal', city : 'Kalyan', username : 'prajwal', role: 'Manager', password : 'prajwal123'}, 
-  { name : 'Payal', city : 'Panvel', username : 'payal', role: 'User', password : 'payal123'} ,
-  {name : 'Shubham', city : 'Ghansoli', username : 'shubham', role: 'User', password : 'shubhu123' } ,
-  {name : 'sudesh', city : 'Ghansoli', username : 'sudesh', role: 'User', password : 'sudesh123' } 
 ]
+// 
+// 
+
+// users:any = [ 
+//   { name : 'Akash', city : 'Vashi', username : 'akash', role: 'Manager', password : 'akash123'},
+//   { name : 'Prajwal', city : 'Kalyan', username : 'prajwal', role: 'Manager', password : 'prajwal123'}, 
+//   { name : 'Payal', city : 'Panvel', username : 'payal', role: 'User', password : 'payal123'} ,
+//   {name : 'Shubham', city : 'Ghansoli', username : 'shubham', role: 'User', password : 'shubhu123' } ,
+//   {name : 'sudesh', city : 'Ghansoli', username : 'sudesh', role: 'User', password : 'sudesh123' } 
+// ]
 
 
+
+// get_exp_list(){
+//   let headers = new HttpHeaders()
+// headers .set('content-type', 'application/json')
+// headers .set('Access-Control-Allow-Origin', '*')
+// return this.http.get('localhost:3000/get_exp_list' , {headers : headers})
+// }
 
 
  

@@ -3,6 +3,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { Data } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { DataType } from "./user_data_type";
+import { expencetype } from "./user_data_type";
 @Injectable({
   providedIn: 'root'
 })
@@ -32,9 +33,6 @@ export class GlobalService {
 
 
 
-
-
-  
   user:any=[]
   str:any =''
   userdata$ = new Subject<any>()
@@ -50,6 +48,22 @@ clickdata(user:DataType){
     
   }
 
+
+  get_exp_list():Observable<expencetype>{
+    let headers = new HttpHeaders()
+  headers .set('content-type', 'application/json')
+  headers .set('Access-Control-Allow-Origin', '*')
+  return this.http.get<expencetype>('http://localhost:3000/get_exp_list' , {headers : headers})
+  }
+
+post_exp_data(body:any):Observable<expencetype>{
+  let headers = new HttpHeaders()
+  headers .set('content-type', 'application/json')
+  headers .set('Access-Control-Allow-Origin', '*')
+return this.http.post<expencetype>('http://localhost:3000/exp_data' , body)
+}
+
+
  get_user():Observable<any>{
   let header = new HttpHeaders({
 'content-type' :' Appliction/json'
@@ -62,9 +76,10 @@ post_user(data:any):Observable<DataType> {
 headers .set('content-type', 'application/json')
 headers .set('Access-Control-Allow-Origin', '*')
  return this.http.post<DataType>('http://localhost:3000/post_data' , data , {headers:headers} )
- 
-  
 }
+
+
+
 
  delete_user(id:any):Observable<DataType>{
   let header = new HttpHeaders({

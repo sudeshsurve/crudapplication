@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GlobalService } from '../global.service';
+import { UserServiceService } from '../service/user-service.service';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,7 @@ import { GlobalService } from '../global.service';
 export class HeaderComponent implements OnInit {
   name:string= 'sudesh'
   
-  constructor(public gs:GlobalService) { }
+  constructor(public gs:GlobalService , public gs_user: UserServiceService) { }
 
 
 

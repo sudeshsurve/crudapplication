@@ -14,7 +14,7 @@
           </li>
           <li>
 
-              <button type="button" class="btn btn-warning btn-sm"  routerLink="/welcom_page"  >Total Expense Report</button>
+              <button type="button" class="btn btn-warning btn-sm" *ngIf="this.gs_user.login_user_data && this.gs_user.login_user_data.role === 'Manager'"  routerLink="/welcom_page"  >Total Expense Report</button>
           </li>
           <li class="nav-item">
             <button type="button" class="btn btn-success btn-sm" routerLink="/expense-report"  >Expence Report</button>
@@ -23,8 +23,13 @@
           <li class="nav-item">
             <button type="button" class="btn btn-success btn-sm" routerLink="/expense-form"  >Expence form</button>
           </li>
+          <li class="nav-item">
+           <h4 ><strong>{{this.gs_user.login_user_data.name}}</strong></h4>
+          </li>
         </ul>
+
         <div class="d-flex">
+          <!-- <p>{{this.gs_user.login_user_data.name}}</p> -->
           <!-- <input class="div-control me-2"  type="search" [(ngModel)]="this.search" (ngModelChange)="click($event)"  placeholder="Search" aria-label="Search"> -->
           <button class="btn btn-primary" type="button" routerLink="/sign-in">Sign_in</button>
         </div>

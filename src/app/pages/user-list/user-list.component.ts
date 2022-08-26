@@ -13,7 +13,7 @@ export class UserListComponent implements OnInit {
   hidee :any = true
  errormessage :any = null
  user:any
-  constructor(public gs:GlobalService , private gs_user : UserServiceService , private rout : Router) { }
+  constructor(public gs:GlobalService , public gs_user : UserServiceService , private rout : Router) { }
 
   ngOnInit(): void {
 if(!this.gs_user.login_user_data.username){

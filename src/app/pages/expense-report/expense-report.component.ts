@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { GlobalService } from 'src/app/global.service';
 import { UserServiceService } from 'src/app/service/user-service.service';
 
 @Component({
@@ -9,18 +10,24 @@ import { UserServiceService } from 'src/app/service/user-service.service';
 })
 export class ExpenseReportComponent implements OnInit {
 
-  constructor(private gs_user : UserServiceService, private rout : Router) { }
+  constructor(private gs_user : UserServiceService, private rout : Router , private gs : GlobalService) { }
 
   ngOnInit(): void {
 if(!this.gs_user.login_user_data.username){
     this.rout.navigateByUrl('/sign-in')
 }
-
+this.gs.get_exp_list().subscribe((x)=>{
+  this.gs_user.expenses = x
+ }, (err)=>{
+  console.log(err.mesage);
+ },()=>{
+  console.log("get list");  
+ })
     this.sudesh()
   }
 
 
- month: any= []
+  month: any= []
   data :any= {}
   head : any = []
 

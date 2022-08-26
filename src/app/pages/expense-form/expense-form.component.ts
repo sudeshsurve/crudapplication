@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {  FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { GlobalService } from 'src/app/global.service';
 import { UserServiceService } from 'src/app/service/user-service.service';
 import { expencetype } from "src/app/user_data_type";
 @Component({
@@ -24,17 +26,36 @@ export class ExpenseFormComponent implements OnInit {
   //   })
 
 
-  constructor(public gs_user : UserServiceService) { }
+  constructor(public gs_user : UserServiceService , private rout : Router , public gs: GlobalService) { }
 
   ngOnInit(): void {
+ if(!this.gs_user.login_user_data.username){
+   this.rout.navigateByUrl('/sign-in')
+ }
+
+
+
+setTimeout(() => {
+   this.gs.get_exp_list().subscribe((x)=>{
+  this.gs_user.expenses = x
+ }, (err)=>{
+  console.log(err.mesage);
+ },()=>{
+  console.log("get list");  
+ })
+}, 1000);
+
+
 
   }
 
+
   submit(){
-    this.gs_user.expenses.push(this.expence_form)
-   localStorage.setItem('key' , JSON.stringify(this.gs_user.expenses))
-     
-
-
+   this.gs.post_exp_data(this.expence_form).subscribe((x)=>{
+   },(err)=>{
+    console.log(err.message);
+   },()=>{
+    console.log("post succesfully");
+   })
   }
 }

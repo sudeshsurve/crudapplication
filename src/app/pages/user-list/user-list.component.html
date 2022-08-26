@@ -19,7 +19,7 @@
           <tr>
             <th scope="col">SR.no</th>
             <th scope="col">Name</th>
-            <th scope="col">Gender</th>
+            <!-- <th scope="col">Gender</th> -->
             <th scope="col">City</th>
             <th scope="col">Role</th>
             <th scope="col">UserName</th>
@@ -29,10 +29,10 @@
           </tr> 
         </thead>
         <tbody>
-          <tr *ngFor="let x of gs.user | filter:search ; let i = index">
+          <tr *ngFor="let x of gs.user ; let i = index">
             <th >{{i+1}}</th>
             <td>{{x.name}}</td>
-            <td>{{x.gender}}</td>
+            <!-- <td>{{x.gender}}</td> -->
             <td>{{x.city}}</td>
             <td>{{x.role}}</td>
             <td>{{x.username}}</td>
