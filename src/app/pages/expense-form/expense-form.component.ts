@@ -17,6 +17,7 @@ export class ExpenseFormComponent implements OnInit {
     amount: 0,
     paid_to:''
   }
+  user :any = []
   // expence_form = new FormGroup({
   //   username: new FormControl(''),
   //   date : new FormControl(''),
@@ -31,6 +32,14 @@ export class ExpenseFormComponent implements OnInit {
   ngOnInit(): void {
  if(!this.gs_user.login_user_data.username){
    this.rout.navigateByUrl('/sign-in')
+   setTimeout(() => {
+    this.gs.get_user().subscribe((x)=>{
+    this.gs.user= x
+    console.log(x);
+    
+   })
+   }, 1000);
+   
  }
 
 
@@ -57,5 +66,6 @@ setTimeout(() => {
    },()=>{
     console.log("post succesfully");
    })
+   window.location.reload()
   }
 }

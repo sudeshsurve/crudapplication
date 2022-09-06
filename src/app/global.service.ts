@@ -44,7 +44,9 @@ clickdata(user:DataType){
 }
   constructor(public http:HttpClient) {           
       
-
+this.get_user().subscribe(x =>{
+  this.user = x
+})
     
   }
 

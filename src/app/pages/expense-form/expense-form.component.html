@@ -2,18 +2,26 @@
     <div class="row d-flex justify-content-around">
 <div class="col col-4">
     <h4><b>Expense Form</b></h4>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">UserName</label>
-            <input type="test" name="username" [(ngModel)]="expence_form.username"  class="form-control"  >
-          </div>
+    <div class="mb-3">
+      <label for="disabledSelect" class="form-label">Username</label>
+      <select id="disabledSelect" [(ngModel)]="expence_form.username" class="form-select">
+        <option>Select</option>
+        <option *ngFor="let x of gs.user">{{x.username}}</option>
+      </select>
+    </div>
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Date</label>
           <input type="date" name="date" [(ngModel)]="expence_form.date"  class="form-control"  >
         </div>
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Head</label>
-            <input type="text" name="head" [(ngModel)]="expence_form.head"  class="form-control"  >
-          </div>
+          <label for="disabledSelect" class="form-label">Head</label>
+          <select id="disabledSelect" [(ngModel)]="expence_form.head" class="form-select">
+            <option>Other</option>
+            <option>Food</option>
+            <option>Travel</option>
+            <option>Device</option>
+          </select>
+        </div>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Amount</label>
             <input type="number" name="amount" [(ngModel)]="expence_form.amount"  class="form-control"  >

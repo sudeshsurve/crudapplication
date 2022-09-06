@@ -28,10 +28,11 @@
           </li>
         </ul>
 
-        <div class="d-flex">
+        <div class="d-flex gap-3">
           <!-- <p>{{this.gs_user.login_user_data.name}}</p> -->
           <!-- <input class="div-control me-2"  type="search" [(ngModel)]="this.search" (ngModelChange)="click($event)"  placeholder="Search" aria-label="Search"> -->
-          <button class="btn btn-primary" type="button" routerLink="/sign-in">Sign_in</button>
+          <button class="btn btn-primary btn-sm" *ngIf="!this.gs_user.login_user_data.username"  type="button" routerLink="/sign-in">Sign_in</button>
+          <button class="btn btn-primary btn-sm" *ngIf="this.gs_user.login_user_data.username" (click)="log_out()" type="button" >Log Out</button>
         </div>
       </div>  
     </div>

@@ -32,11 +32,13 @@ this.gs.get_exp_list().subscribe((x)=>{
   head : any = []
 
 sudesh(){
+
   let get_data = this.gs_user.get_user_expence(this.gs_user.expenses ,this.gs_user.login_user_data?.username)
 this.month = get_data.month
 this.data = get_data.data
 this.head = get_data.head
 console.log(this.month);
+
 
 }
 

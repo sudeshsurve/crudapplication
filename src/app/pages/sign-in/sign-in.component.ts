@@ -40,6 +40,8 @@ if(user){
 this.rout.navigateByUrl('/user_list')
 }
   }
-
+  log_out(){
+    
+  }
 
 }
